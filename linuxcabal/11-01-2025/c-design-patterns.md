@@ -17,9 +17,8 @@ paging: ""
 ## Contenidos
 
 1. Homogeneizando ideas
-2. Patrones estructurales
-3. Patrones creacionales
-4. Patrones de comportamiento
+2. Patrones creacionales
+3. Patrones estructurales
 
 ---
 
@@ -52,12 +51,17 @@ paging: ""
 
 ---
 
-## Patrones estructurales
-
----
-
 ## Patrones creacionales
 
+- Object Pattern
+- Factory Pattern
+- Opaque Pattern
+- Singleton Pattern
+
 ---
 
-## Patrones de comportamiento
+## Patrones estructurales
+
+- Inheritance Pattern
+- Callback Pattern
+- Virtual Function Table Pattern
