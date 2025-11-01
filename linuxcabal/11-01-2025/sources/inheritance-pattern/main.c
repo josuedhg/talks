@@ -42,6 +42,8 @@ struct duck {
 
 void swim2(struct swimmer *s)
 {
+	if (s == NULL)
+		return;
 	struct duck *d = container_of(s, struct duck, s);
 	printf("swimming %s\n", d->sound);
 }

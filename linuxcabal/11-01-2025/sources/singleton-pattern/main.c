@@ -9,6 +9,8 @@ void function()
 int main()
 {
 	struct log *log = log_create();
+	if (!log)
+		return -1;
 
 	log_msg(log, "[%s]: log address %p", __FUNCTION__, log);
 	function();

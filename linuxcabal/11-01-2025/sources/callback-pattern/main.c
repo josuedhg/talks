@@ -20,12 +20,16 @@ struct button {
 
 void event1_action(struct callback *cb)
 {
+	if (cb == NULL)
+		return;
 	struct event *e = container_of(cb, struct event, cb);
 	printf("event1_action: %s\n", e->event_name);
 }
 
 void button_action(struct callback *cb)
 {
+	if (cb == NULL)
+		return;
 	struct button *b = container_of(cb, struct button, cb);
 	printf("button_action: %s\n", b->name);
 	printf("button_action: button_id: %d\n", b->button_id);
@@ -33,6 +37,8 @@ void button_action(struct callback *cb)
 
 void trigger_callback(struct callback *cb)
 {
+	if (cb == NULL)
+		return;
 	cb->action(cb);
 }
 

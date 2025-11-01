@@ -8,6 +8,10 @@
 int main()
 {
 	struct square *s = square_create(5);
+	if (s == NULL) {
+		printf("Error creating square\n");
+		return 1;
+	}
 	printf("Area of square is %d\n", square_area(s));
 
 //	square_init(s, 15);

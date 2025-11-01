@@ -14,6 +14,8 @@ struct cpu {
 
 struct cpu *cpu_create() {
 	struct cpu *cpu = malloc(sizeof(struct cpu));
+	if (cpu == NULL)
+		return NULL;
 	cpu->bus = 32;
 	strcpy(cpu->brand, CPU_BRAND);
 
@@ -22,10 +24,14 @@ struct cpu *cpu_create() {
 }
 
 void cpu_setup(struct cpu *cpu) {
+	if (cpu == NULL)
+		return;
 	printf("Setting up CPU ARM bus %d and brand %s\n", cpu->bus, cpu->brand);
 }
 
 void cpu_destroy(struct cpu *cpu) {
+	if (cpu == NULL)
+		return;
 	printf("Destroying CPU ARM bus %d and brand %s\n", cpu->bus, cpu->brand);
 	free(cpu);
 }

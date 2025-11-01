@@ -18,12 +18,20 @@ struct log *log_create()
 		return singleton_log;
 
 	singleton_log = malloc(sizeof(struct log));
+	if (!singleton_log)
+		return NULL;
 	singleton_log->id = log_id++;
 	return singleton_log;
 }
 
 void log_msg(struct log *log, char *format, ...)
 {
+	if (!log)
+		return;
+
+	if (!format)
+		return;
+
 	va_list args;
 	va_start(args, format);
 	printf("ID: %d - ", log->id);

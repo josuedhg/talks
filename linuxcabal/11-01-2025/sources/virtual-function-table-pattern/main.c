@@ -14,6 +14,12 @@ struct i2c_file {
 
 int i2c_read(struct vfs *vfs, char *buf, size_t len)
 {
+	if (buf == NULL)
+		return -1;
+
+	if (len == 0)
+		return 0;
+
 	struct i2c_file *i2c = container_of(vfs, struct i2c_file, vfs);
 	printf("i2c_read from %s\n", i2c->vfs.name);
 	printf("SDA: %d, SCL: %d\n", i2c->SDA, i2c->SCL);
@@ -28,10 +34,16 @@ int i2c_read(struct vfs *vfs, char *buf, size_t len)
 
 int i2c_write(struct vfs *vfs, char *buf, size_t len)
 {
+	if (buf == NULL)
+		return -1;
+
+	if (len == 0)
+		return 0;
+
 	struct i2c_file *i2c = container_of(vfs, struct i2c_file, vfs);
 	printf("i2c_write to %s\n", i2c->vfs.name);
 	printf("SDA: %d, SCL: %d\n", i2c->SDA, i2c->SCL);
-	printf("buf: %s\n", buf);
+	printf("buf writen to i2c: %s\n", buf);
 	return 0;
 }
 
@@ -58,6 +70,12 @@ struct uart_file {
 
 int uart_read(struct vfs *vfs, char *buf, size_t len)
 {
+	if (buf == NULL)
+		return -1;
+
+	if (len == 0)
+		return 0;
+
 	struct uart_file *uart = container_of(vfs, struct uart_file, vfs);
 	printf("uart_read from %s\n", uart->vfs.name);
 	printf("baud: %d, tx: %d, rx: %d\n", uart->baud, uart->tx, uart->rx);
@@ -72,10 +90,16 @@ int uart_read(struct vfs *vfs, char *buf, size_t len)
 
 int uart_write(struct vfs *vfs, char *buf, size_t len)
 {
+	if (buf == NULL)
+		return -1;
+
+	if (len == 0)
+		return 0;
+
 	struct uart_file *uart = container_of(vfs, struct uart_file, vfs);
 	printf("uart_write to %s\n", uart->vfs.name);
 	printf("baud: %d, tx: %d, rx: %d\n", uart->baud, uart->tx, uart->rx);
-	printf("buf: %s\n", buf);
+	printf("buf writen to uart: %s\n", buf);
 	return 0;
 }
 
