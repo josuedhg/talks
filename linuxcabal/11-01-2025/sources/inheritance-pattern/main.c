@@ -34,10 +34,10 @@ void run(struct runner *r)
 }
 
 struct duck {
-	char sound[10];
 	struct swimmer s;
 	struct flyer f;
 	struct runner r;
+	char sound[10];
 };
 
 void swim2(struct swimmer *s)
@@ -50,7 +50,7 @@ void swim2(struct swimmer *s)
 
 int main()
 {
-	struct duck d = {"quack", };
+	struct duck d = {.sound="quack", };
 
 	swim((struct swimmer *)&d);
 
