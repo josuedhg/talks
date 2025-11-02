@@ -65,3 +65,14 @@ paging: ""
 - Inheritance Pattern
 - Callback Pattern
 - Virtual Function Table Pattern
+
+---
+
+## Referencias
+
+- 21st Century C: C tips for the new school (Chapter 11) - Ben Klemens
+- Udemy: Embedded C Progamming Design Patterns - Martin Schröder
+- Example of cpu device Obfuscated struct in linux kernel - https://elixir.bootlin.com/linux/v6.18-rc3/source/include/linux/cpu.h#L23
+- Example of vitual function table (file_operations) in linux kernel
+    - https://elixir.bootlin.com/linux/v6.18-rc3/source/include/linux/fs.h#L2268
+    - https://elixir.bootlin.com/linux/v6.18-rc3/source/include/linux/fs.h#L2268
