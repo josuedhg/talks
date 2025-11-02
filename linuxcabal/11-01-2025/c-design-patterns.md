@@ -76,3 +76,7 @@ paging: ""
 - Example of vitual function table (file_operations) in linux kernel
     - https://elixir.bootlin.com/linux/v6.18-rc3/source/include/linux/fs.h#L2268
     - https://elixir.bootlin.com/linux/v6.18-rc3/source/include/linux/fs.h#L2268
+- container_of declaration in linux kerner - https://elixir.bootlin.com/linux/v6.18-rc3/source/include/linux/container_of.h#L19
+- Usage of container_of in linux kernel - https://elixir.bootlin.com/linux/v6.18-rc3/A/ident/container_of
+- Other project using this patterns
+    - https://github.com/htop-dev/htop
