@@ -1,28 +1,12 @@
 #include <stdio.h>
 #include <stddef.h>
 
-#define container_of(ptr, type, member) ({                      \
-	const typeof( ((type *)0)->member ) *__mptr = (ptr);    \
-	(type *)( (char *)__mptr - offsetof(type,member) );})
-
-//#define container_of(ptr, type, member) (type *)( (char *)(ptr) - offsetof(type,member) )
-
-struct swimmer {
-};
-
-struct duck;
-
-void swim(struct swimmer *s)
-{
-	printf("swimming\n");
-}
-
 struct flyer {
 };
 
 void fly(struct flyer *f)
 {
-	printf("flying\n");
+	puts("flying");
 }
 
 struct runner {
@@ -30,34 +14,32 @@ struct runner {
 
 void run(struct runner *r)
 {
-	printf("running\n");
+	puts("running");
+}
+
+struct swimmer {
+	char style[20];
+};
+
+void swim(struct swimmer *s)
+{
+	printf("swimming %s\n", s->style);
 }
 
 struct duck {
-	struct swimmer s;
 	struct flyer f;
 	struct runner r;
-	char sound[10];
+	struct swimmer s;
 };
-
-void swim2(struct swimmer *s)
-{
-	if (s == NULL)
-		return;
-	struct duck *d = container_of(s, struct duck, s);
-	printf("swimming %s\n", d->sound);
-}
 
 int main()
 {
-	struct duck d = {.sound="quack", };
+	struct duck d = { .s = { .style = "floating" }};
 
-	swim((struct swimmer *)&d);
 
-	fly(&d.f);
+	fly((struct flyer *)&d);
 	run(&d.r);
-
-	swim2(&d.s);
+	swim(&d.s);
 
 	return 0;
 }
