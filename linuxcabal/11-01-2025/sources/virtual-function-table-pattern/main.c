@@ -43,7 +43,7 @@ int i2c_write(struct vfs *vfs, char *buf, size_t len)
 	struct i2c_file *i2c = container_of(vfs, struct i2c_file, vfs);
 	printf("i2c_write to %s\n", i2c->vfs.name);
 	printf("SDA: %d, SCL: %d\n", i2c->SDA, i2c->SCL);
-	printf("buf writen to i2c: %s\n", buf);
+	printf("buf wrote to i2c: %s\n", buf);
 	return 0;
 }
 
@@ -99,7 +99,7 @@ int uart_write(struct vfs *vfs, char *buf, size_t len)
 	struct uart_file *uart = container_of(vfs, struct uart_file, vfs);
 	printf("uart_write to %s\n", uart->vfs.name);
 	printf("baud: %d, tx: %d, rx: %d\n", uart->baud, uart->tx, uart->rx);
-	printf("buf writen to uart: %s\n", buf);
+	printf("buf wrote to uart: %s\n", buf);
 	return 0;
 }
 
@@ -128,8 +128,10 @@ int main()
 	char buf[30] = {0};
 
 	for (int i = 0; i < 2; i++) {
+		puts("========================");
 		vfs_read(vfs[i], buf, 30);
 		vfs_write(vfs[i], "Hello World!", 12);
+		printf("buf read: %s\n", buf);
 	}
 
 	return 0;
